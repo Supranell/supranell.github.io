@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Documentos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row text-center">
+        <img src="https://certificaciones.ceim.cl/images/LOGO%20CEIMAS%20150x98.png" width="150" height="98" alt="LOGO CEIMAS">
+    </div>
+    <div class="row text-center">
+        <h1>Validador de Documentos</h1>
+    </div>
+    <div class="row">
+        <form action="#" method="post" class="form-inline text-center">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Tipo de Documento</label>
+                <div class="col-md-6">
+                    <select name="tipo" class="form-control" id="tipo">
+                        <option value="0" selected>Seleccionar</option>
+                        <option value="1">Certificado Acreditación Competencias</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Código</label>
+                <div class="col-md-3">
+                    <input name="codigo" type="text" id="codigo" placeholder="Ingrese código" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="button" id="button" value="Buscar" class="btn btn-primary btn-sm">
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="row text-center">
+        <div class="alert alert-success" role="alert">
+            <h1>El documento existe y es válido!</h1>
+        </div>
+        <iframe src="https://drive.google.com/file/d/14C1loS6aaxhREfRK-4AXCyL5y7okzkg-/preview" 
+                style="width:99%; height:600px;" frameborder="0"></iframe>
+    </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <address>
+                <strong>Casa Matriz</strong><br>
+                <span class="glyphicon glyphicon-map-marker"></span> Av. Pedro Aguirre Cerda 8280, Antofagasta<br>
+                <span class="glyphicon glyphicon-earphone"></span> +56 55 2456000
+            </address>
+        </div>
+        <div class="col-md-4">
+            <address>
+                <strong>Sede Iquique</strong><br>
+                <span class="glyphicon glyphicon-map-marker"></span> Eleuterio Ramirez 428, Iquique<br>
+                <span class="glyphicon glyphicon-earphone"></span> +56 55 2456154
+            </address>
+            <address>
+                <strong>Sede Santiago</strong><br>
+                <span class="glyphicon glyphicon-map-marker"></span> La Concepción 322, Providencia<br>
+                <span class="glyphicon glyphicon-earphone"></span> +56 55 2456178
+            </address>
+        </div>
+        <div class="col-md-5">
+            <p>Desarrollado por el Departamento de Sistemas y Tecnología de la Información (DSTI) del Centro de 
+            Entrenamiento Industrial y Minero (CEIM), de la Fundación Educacional Escondida.<br>
+            Septiembre - 2015<br>Antofagasta - Chile.</p>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+</body>
+</html>
