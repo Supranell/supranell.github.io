@@ -70,6 +70,23 @@
     </footer>
 
     <script>
+        // Función para obtener parámetros de la URL
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Cargar el documento si el código está en la URL
+        window.onload = function() {
+            let codigo = getQueryParam('codigo');
+            if (codigo) {
+                document.getElementById('codigo').value = codigo;
+                document.getElementById('resultado').style.display = 'block';
+                document.getElementById('visorPDF').src = 'documentos/' + codigo + '.pdf';
+            }
+        };
+
+        // Manejador del formulario para búsqueda manual
         document.getElementById('buscador').addEventListener('submit', function(event) {
             event.preventDefault();
             let codigo = document.getElementById('codigo').value.trim();
