@@ -77,7 +77,7 @@
             event.preventDefault();
             let codigo = document.getElementById('codigo').value.trim();
             if (codigo) {
-                let docUrl = 'documentos/' + codigo + '.html';
+                let docUrl = 'documentos/' + codigo + '.pdf';
                 document.getElementById('resultado').style.display = 'block';
                 document.getElementById('visorPDF').src = docUrl;
                 document.getElementById('linkDocumento').href = docUrl;
