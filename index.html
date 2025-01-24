@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <img src="https://certificaciones.ceim.cl/images/LOGO%20CEIMAS%20150x98.png" width="150" height="98">
+            <img src="images/LOGO_CEIMAS_150x98.png" width="150" height="98">
         </div>
         <div class="row">
             <h1>Validador Documentos</h1>
@@ -38,7 +38,10 @@
         </div>
         <hr>
         <div class="row" id="resultado" style="display:none;">
-            <div class="alert alert-success" role="alert"><h1>El documento existe y es válido!</h1></div>
+            <div class="alert alert-success" role="alert">
+                <h1>El documento existe y es válido!</h1>
+            </div>
+            <p> <a id="linkDocumento" href="#" target="_blank">Abrir documento en una nueva pestaña</a> </p>
             <iframe id="visorPDF" style="width:99%; height:600px;" frameborder="0"></iframe>
         </div>
     </div>
@@ -74,8 +77,11 @@
             event.preventDefault();
             let codigo = document.getElementById('codigo').value.trim();
             if (codigo) {
+                let docUrl = 'documentos/' + codigo + '.html';
                 document.getElementById('resultado').style.display = 'block';
-                document.getElementById('visorPDF').src = 'documentos/' + codigo + '.html';
+                document.getElementById('visorPDF').src = docUrl;
+                document.getElementById('linkDocumento').href = docUrl;
+                document.getElementById('linkDocumento').textContent = "Ver documento: " + docUrl;
             } else {
                 alert('Por favor, ingrese un código válido.');
             }
