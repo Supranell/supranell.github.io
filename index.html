@@ -8,39 +8,74 @@
 </head>
 <body>
     <div class="container">
-        <div class="row text-center">
-            <img src="images/LOGO_CEIMAS_150x98.png" width="150" height="98" alt="Logo">
+        <div class="row">
+            <img src="https://certificaciones.ceim.cl/images/LOGO%20CEIMAS%20150x98.png" width="150" height="98">
         </div>
-        <div class="row text-center">
-            <h1>Validador de Documentos</h1>
+        <div class="row">
+            <h1>Validador Documentos</h1>
         </div>
-        <div class="row text-center">
+        <div class="row">
             <form id="buscador" class="form-inline">
                 <div class="form-group">
-                    <label for="codigo">Ingrese el código del documento:</label>
-                    <input type="text" id="codigo" class="form-control" required>
+                    <label class="col-md-4 control-label">Tipo Documento</label>
+                    <div class="col-md-6">
+                        <select name="tipo" class="form-control" id="tipo">
+                            <option value="0" selected="selected">Seleccionar</option>
+                            <option value="1">Certificado Acreditación Competencias</option>
+                        </select>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Código</label>
+                    <div class="col-md-3">
+                        <input name="codigo" type="text" id="codigo" size="20" maxlength="5" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+                </div>
             </form>
         </div>
         <hr>
+        <div class="row" id="resultado" style="display:none;">
+            <div class="alert alert-success" role="alert"><h1>El documento existe y es válido!</h1></div>
+            <iframe id="visorPDF" style="width:99%; height:600px;" frameborder="0"></iframe>
+        </div>
     </div>
 
-    <footer class="footer text-center">
+    <footer class="footer">
         <div class="container">
-            <p>Desarrollado por el Departamento de Sistemas y Tecnología de la Información (DSTI) - CEIM</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <address>
+                        <br>
+                        <strong>Casa Matriz</strong><br>
+                        Av. Pedro Aguirre Cerda 8280, Antofagasta<br>
+                        Fono +56 55 2456000
+                    </address>
+                </div>
+                <div class="col-md-4">
+                    <address>
+                        <br>
+                        <strong>Sede Iquique</strong><br>
+                        Eleuterio Ramirez 428, Iquique<br>
+                        Fono +56 55 2456154
+                    </address>
+                </div>
+                <div class="col-md-5">
+                    Desarrollado por el Departamento de Sistemas y Tecnología de la Información (DSTI) - CEIM.<br>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
         document.getElementById('buscador').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío del formulario
-            
+            event.preventDefault();
             let codigo = document.getElementById('codigo').value.trim();
-            
             if (codigo) {
-                // Redirige al archivo PDF correspondiente en la carpeta documentos
-                window.location.href = 'documentos/' + codigo + '.html';
+                document.getElementById('resultado').style.display = 'block';
+                document.getElementById('visorPDF').src = 'documentos/' + codigo + '.html';
             } else {
                 alert('Por favor, ingrese un código válido.');
             }
