@@ -3,93 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validador Documentos</title>
+    <title>Validador de Documentos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <img src="https://certificaciones.ceim.cl/images/LOGO%20CEIMAS%20150x98.png" width="150" height="98">
-    </div>
-    <div class="row">
-        <h1>Validador Documentos</h1>
-    </div>
-    <div class="row">
-        <form id="searchForm" class="form-inline">
-            <div class="form-group">
-                <label class="col-md-4 control-label">Tipo Documento</label>
-                <div class="col-md-6">
-                    <select name="tipo" class="form-control" id="tipo">
-                        <option value="0" selected="selected">Seleccionar</option>
-                        <option value="1">Certificado Acreditación Competencias</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-3 control-label">Código</label>
-                <div class="col-md-3">
-                    <input name="codigo" type="text" id="codigo" placeholder="Ingrese código" class="form-control">
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Buscar" class="btn btn-primary btn-sm">
-            </div>
-        </form>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="alert alert-info" role="alert"><h3>Ingrese su código para validar el documento</h3></div>
-    </div>
-</div>
-
-<footer class="footer">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <address>
-                    <br>
-                    <strong>Casa Matriz</strong><br>
-                    <span class="fa fa-map-marker fa-1x"></span> Av. Pedro Aguirre Cerda 8280, Antofagasta<br>
-                    <span class="fa fa-phone fa-1x"></span> Fono +56 55 2456000
-                </address>
-            </div>
-            <div class="col-md-4">
-                <address>
-                    <br>
-                    <strong>Sede Iquique</strong><br>
-                    <span class="fa fa-map-marker fa-1x"></span> Eleuterio Ramirez 428, Iquique<br>
-                    <span class="fa fa-phone fa-1x"></span> Fono +56 55 2456154
-                </address>
-                <address>
-                    <strong>Sede Santiago</strong><br>
-                    <span class="fa fa-map-marker fa-1x"></span> La Concepción 322, Of. 102, Providencia<br>
-                    <span class="fa fa-phone fa-1x"></span> Fono +56 55 2456178
-                </address>
-            </div>
-            <div class="col-md-5">
-                Desarrollado por el Departamento de Sistemas y Tecnología de la Información (DSTI) del Centro de
-                Entrenamiento Industrial y Minero (CEIM), de la Fundación Educacional Escondida.<br>Septiembre - 2015<br>Antofagasta - Chile.<br>
-            </div>
+        <div class="row text-center">
+            <img src="images/LOGO_CEIMAS_150x98.png" width="150" height="98" alt="Logo">
         </div>
+        <div class="row text-center">
+            <h1>Validador de Documentos</h1>
+        </div>
+        <div class="row text-center">
+            <form id="buscador" class="form-inline">
+                <div class="form-group">
+                    <label for="codigo">Ingrese el código del documento:</label>
+                    <input type="text" id="codigo" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+        <hr>
     </div>
-</footer>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    document.getElementById("searchForm").addEventListener("submit", function(event) {
-        event.preventDefault();  // Evita el envío del formulario
-        var codigo = document.getElementById("codigo").value;
+    <footer class="footer text-center">
+        <div class="container">
+            <p>Desarrollado por el Departamento de Sistemas y Tecnología de la Información (DSTI) - CEIM</p>
+        </div>
+    </footer>
 
-        // Redirigir a la subpágina correspondiente según el código ingresado
-        if (codigo === "12345") {
-            window.location.href = "documentos/doc1.html";
-        } else if (codigo === "67890") {
-            window.location.href = "documentos/doc2.html";
-        } else {
-            alert("Código no encontrado");
-        }
-    });
-</script>
-
+    <script>
+        document.getElementById('buscador').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+            
+            let codigo = document.getElementById('codigo').value.trim();
+            
+            if (codigo) {
+                // Redirige al archivo PDF correspondiente en la carpeta documentos
+                window.location.href = 'documentos/' + codigo + '.pdf';
+            } else {
+                alert('Por favor, ingrese un código válido.');
+            }
+        });
+    </script>
 </body>
 </html>
