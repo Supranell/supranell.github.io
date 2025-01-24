@@ -38,10 +38,7 @@
         </div>
         <hr>
         <div class="row" id="resultado" style="display:none;">
-            <div class="alert alert-success" role="alert">
-                <h1>El documento existe y es válido!</h1>
-            </div>
-            <p> <a id="linkDocumento" href="#" target="_blank">Abrir documento en una nueva pestaña</a> </p>
+            <div class="alert alert-success" role="alert"><h1>El documento existe y es válido!</h1></div>
             <iframe id="visorPDF" style="width:99%; height:600px;" frameborder="0"></iframe>
         </div>
     </div>
@@ -77,11 +74,8 @@
             event.preventDefault();
             let codigo = document.getElementById('codigo').value.trim();
             if (codigo) {
-                let docUrl = 'documentos/' + codigo + '.pdf';
                 document.getElementById('resultado').style.display = 'block';
-                document.getElementById('visorPDF').src = docUrl;
-                document.getElementById('linkDocumento').href = docUrl;
-                document.getElementById('linkDocumento').textContent = "Ver documento: " + docUrl;
+                document.getElementById('visorPDF').src = 'documentos/' + codigo + '.pdf';
             } else {
                 alert('Por favor, ingrese un código válido.');
             }
