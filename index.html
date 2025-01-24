@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validador de Documentos</title>
+    <title>Validador Documentos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
-
 <div class="container">
-    <div class="row text-center">
-        <img src="https://certificaciones.ceim.cl/images/LOGO%20CEIMAS%20150x98.png" width="150" height="98" alt="LOGO CEIMAS">
-    </div>
-    <div class="row text-center">
-        <h1>Validador de Documentos</h1>
+    <div class="row">
+        <img src="https://certificaciones.ceim.cl/images/LOGO%20CEIMAS%20150x98.png" width="150" height="98">
     </div>
     <div class="row">
-        <form action="#" method="post" class="form-inline text-center">
+        <h1>Validador Documentos</h1>
+    </div>
+    <div class="row">
+        <form id="searchForm" class="form-inline">
             <div class="form-group">
-                <label class="col-md-4 control-label">Tipo de Documento</label>
+                <label class="col-md-4 control-label">Tipo Documento</label>
                 <div class="col-md-6">
                     <select name="tipo" class="form-control" id="tipo">
-                        <option value="0" selected>Seleccionar</option>
+                        <option value="0" selected="selected">Seleccionar</option>
                         <option value="1">Certificado Acreditación Competencias</option>
                     </select>
                 </div>
@@ -33,53 +32,64 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" name="button" id="button" value="Buscar" class="btn btn-primary btn-sm">
+                <input type="submit" value="Buscar" class="btn btn-primary btn-sm">
             </div>
         </form>
     </div>
     <hr>
-    <div class="row text-center">
-        <div class="alert alert-success" role="alert">
-            <h1>El documento existe y es válido!</h1>
-        </div>
-        <iframe src="https://drive.google.com/file/d/1zDme0hAh4lW7PNN_1d2Wkggh1SUoBWpg/preview" 
-                style="width:99%; height:600px;" frameborder="0"></iframe>
+    <div class="row">
+        <div class="alert alert-info" role="alert"><h3>Ingrese su código para validar el documento</h3></div>
     </div>
 </div>
 
 <footer class="footer">
-  <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <address>
-                <strong>Casa Matriz</strong><br>
-                <span class="glyphicon glyphicon-map-marker"></span> Av. Pedro Aguirre Cerda 8280, Antofagasta<br>
-                <span class="glyphicon glyphicon-earphone"></span> +56 55 2456000
-            </address>
-        </div>
-        <div class="col-md-4">
-            <address>
-                <strong>Sede Iquique</strong><br>
-                <span class="glyphicon glyphicon-map-marker"></span> Eleuterio Ramirez 428, Iquique<br>
-                <span class="glyphicon glyphicon-earphone"></span> +56 55 2456154
-            </address>
-            <address>
-                <strong>Sede Santiago</strong><br>
-                <span class="glyphicon glyphicon-map-marker"></span> La Concepción 322, Providencia<br>
-                <span class="glyphicon glyphicon-earphone"></span> +56 55 2456178
-            </address>
-        </div>
-        <div class="col-md-5">
-            <p>Desarrollado por el Departamento de Sistemas y Tecnología de la Información (DSTI) del Centro de 
-            Entrenamiento Industrial y Minero (CEIM), de la Fundación Educacional Escondida.<br>
-            Septiembre - 2015<br>Antofagasta - Chile.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <address>
+                    <br>
+                    <strong>Casa Matriz</strong><br>
+                    <span class="fa fa-map-marker fa-1x"></span> Av. Pedro Aguirre Cerda 8280, Antofagasta<br>
+                    <span class="fa fa-phone fa-1x"></span> Fono +56 55 2456000
+                </address>
+            </div>
+            <div class="col-md-4">
+                <address>
+                    <br>
+                    <strong>Sede Iquique</strong><br>
+                    <span class="fa fa-map-marker fa-1x"></span> Eleuterio Ramirez 428, Iquique<br>
+                    <span class="fa fa-phone fa-1x"></span> Fono +56 55 2456154
+                </address>
+                <address>
+                    <strong>Sede Santiago</strong><br>
+                    <span class="fa fa-map-marker fa-1x"></span> La Concepción 322, Of. 102, Providencia<br>
+                    <span class="fa fa-phone fa-1x"></span> Fono +56 55 2456178
+                </address>
+            </div>
+            <div class="col-md-5">
+                Desarrollado por el Departamento de Sistemas y Tecnología de la Información (DSTI) del Centro de
+                Entrenamiento Industrial y Minero (CEIM), de la Fundación Educacional Escondida.<br>Septiembre - 2015<br>Antofagasta - Chile.<br>
+            </div>
         </div>
     </div>
-  </div>
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+        event.preventDefault();  // Evita el envío del formulario
+        var codigo = document.getElementById("codigo").value;
+
+        // Redirigir a la subpágina correspondiente según el código ingresado
+        if (codigo === "12345") {
+            window.location.href = "documentos/doc1.html";
+        } else if (codigo === "67890") {
+            window.location.href = "documentos/doc2.html";
+        } else {
+            alert("Código no encontrado");
+        }
+    });
+</script>
 
 </body>
 </html>
